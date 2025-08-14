@@ -3,14 +3,12 @@ import { HydratedDocument } from 'mongoose';
 
 export type UserDocument = HydratedDocument<User>;
 
-@Schema()
 @Schema({ timestamps: true })
 export class User {
   @Prop()
   name: string;
 
   @Prop()
-  age: number;
   email: string;
 
   @Prop()
@@ -25,14 +23,14 @@ export class User {
   @Prop()
   image: string;
 
-  @Prop()
+  @Prop({default: "USERS"})
   role: string;
 
-  @Prop()
+  @Prop({default: "LOCAL"})
   accountType: string;
 
-  @Prop()
-  isActive: string;
+  @Prop({default: false})
+  isActive: boolean;
 
   @Prop()
   codeId: string;
