@@ -41,7 +41,7 @@ export class UsersService {
     const { filter, sort } = aqp(query);
     if(filter.current) delete filter.current;
     if(filter.pageSize) delete filter.pageSize;
-    if(!current) current =1;
+    if(!current) current = 1;
     if(!pageSize) pageSize = 10; 
 
     const totalItems = (await this.userModel.find(filter)).length;
@@ -77,7 +77,7 @@ export class UsersService {
       // delete
       return this.userModel.deleteOne({ _id });
     }else {
-      throw new BadRequestException(`ID không hợp lệ: ${_id}`);
+      throw new BadRequestException("Id không đúng định dạng mongodb");
     }
 
   }
